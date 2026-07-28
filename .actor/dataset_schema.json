@@ -1,0 +1,78 @@
+{
+  "actorSpecification": 1,
+  "fields": {},
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": [
+          "id",
+          "title",
+          "company",
+          "category",
+          "location",
+          "job_location_type",
+          "posted_at",
+          "ends_at",
+          "description_html",
+          "description_text",
+          "url",
+          "logo_url"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "id": {
+            "label": "Job ID",
+            "format": "number"
+          },
+          "title": {
+            "label": "Title",
+            "format": "text"
+          },
+          "company": {
+            "label": "Company",
+            "format": "text"
+          },
+          "category": {
+            "label": "Category",
+            "format": "text"
+          },
+          "location": {
+            "label": "Location",
+            "format": "text"
+          },
+          "job_location_type": {
+            "label": "Location Type",
+            "format": "text"
+          },
+          "posted_at": {
+            "label": "Posted",
+            "format": "date"
+          },
+          "ends_at": {
+            "label": "Deadline",
+            "format": "date"
+          },
+          "description_html": {
+            "label": "Description HTML",
+            "format": "text"
+          },
+          "description_text": {
+            "label": "Description Text",
+            "format": "text"
+          },
+          "url": {
+            "label": "URL",
+            "format": "link"
+          },
+          "logo_url": {
+            "label": "Logo",
+            "format": "image"
+          }
+        }
+      }
+    }
+  }
+}

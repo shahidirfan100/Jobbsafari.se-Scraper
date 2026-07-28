@@ -1,0 +1,66 @@
+{
+  "title": "Jobbland.se Scraper",
+  "description": "Scrape structured job listings from Jobbland.se. Provide a Jobbland search URL or use keyword and location.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "url": {
+      "title": "Jobbland URL",
+      "type": "string",
+      "description": "A Jobbland search URL, for example a general, city, category, profession, company, or paginated URL.",
+      "editor": "textfield",
+      "prefill": "https://jobbland.se/lediga-jobb/stockholm?search=software"
+    },
+    "keyword": {
+      "title": "Keyword",
+      "type": "string",
+      "description": "Search keyword used when no URL is provided.",
+      "editor": "textfield",
+      "prefill": "software engineer"
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "description": "City or area slug, for example Stockholm, Goteborg, Malmo, or Uppsala.",
+      "editor": "textfield",
+      "prefill": "Stockholm"
+    },
+    "results_wanted": {
+      "title": "Results wanted",
+      "type": "integer",
+      "description": "Maximum number of jobs to collect.",
+      "minimum": 1,
+      "default": 20,
+      "prefill": 20,
+      "editor": "number"
+    },
+    "max_pages": {
+      "title": "Maximum pages",
+      "type": "integer",
+      "description": "Safety cap for API result pages. Jobbland returns up to 30 jobs per page.",
+      "minimum": 1,
+      "default": 5,
+      "prefill": 5,
+      "editor": "number"
+    },
+    "includeDescriptions": {
+      "title": "Include descriptions",
+      "type": "boolean",
+      "description": "Include full job description HTML and plain text when available.",
+      "editor": "checkbox",
+      "default": true,
+      "prefill": true
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Optional proxy settings. The actor works without a proxy in normal conditions.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": false
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}
