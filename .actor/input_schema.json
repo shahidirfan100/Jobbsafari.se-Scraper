@@ -1,29 +1,28 @@
 {
   "title": "Jobbland.se Scraper",
-  "description": "Scrape structured job listings from Jobbland.se. Provide a Jobbland search URL or use keyword and location.",
+  "description": "Scrape structured job listings from JobbSafari (formerly Jobbland.se). Provide a JobbSafari search URL or use a keyword and location.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "url": {
-      "title": "Jobbland URL",
+      "title": "JobbSafari URL",
       "type": "string",
-      "description": "A Jobbland search URL, for example a general, city, category, profession, company, or paginated URL.",
+      "description": "A JobbSafari search URL, for example a general, city, category, profession, company, or paginated URL.",
       "editor": "textfield",
-      "prefill": "https://jobbland.se/lediga-jobb/stockholm?search=software"
+      "default": "https://jobbsafari.se/lediga-jobb?sok=software&ort=stockholm",
+      "prefill": "https://jobbsafari.se/lediga-jobb?sok=software&ort=stockholm"
     },
     "keyword": {
       "title": "Keyword",
       "type": "string",
-      "description": "Search keyword used when no URL is provided.",
-      "editor": "textfield",
-      "prefill": "software engineer"
+      "description": "Search keyword. When supplied with a location, the URL input is ignored.",
+      "editor": "textfield"
     },
     "location": {
       "title": "Location",
       "type": "string",
-      "description": "City or area slug, for example Stockholm, Goteborg, Malmo, or Uppsala.",
-      "editor": "textfield",
-      "prefill": "Stockholm"
+      "description": "City or area slug, for example Stockholm, Goteborg, Malmo, or Uppsala. When supplied with a keyword, the URL input is ignored.",
+      "editor": "textfield"
     },
     "results_wanted": {
       "title": "Results wanted",
@@ -31,34 +30,29 @@
       "description": "Maximum number of jobs to collect.",
       "minimum": 1,
       "default": 20,
-      "prefill": 20,
       "editor": "number"
     },
     "max_pages": {
       "title": "Maximum pages",
       "type": "integer",
-      "description": "Safety cap for API result pages. Jobbland returns up to 30 jobs per page.",
+      "description": "Safety cap for API result pages. JobbSafari returns up to 30 jobs per page.",
       "minimum": 1,
       "default": 5,
-      "prefill": 5,
       "editor": "number"
     },
     "includeDescriptions": {
       "title": "Include descriptions",
       "type": "boolean",
-      "description": "Include full job description HTML and plain text when available.",
-      "editor": "checkbox",
-      "default": true,
-      "prefill": true
+      "description": "Fetch full descriptions and rich job details. Off by default. When enabled, adds one detail request per job through Apify residential proxy (Sweden) and incurs proxy cost.",
+      "default": false,
+      "editor": "checkbox"
     },
     "proxyConfiguration": {
       "title": "Proxy configuration",
       "type": "object",
-      "description": "Optional proxy settings. The actor works without a proxy in normal conditions.",
+      "description": "Optional proxy settings for the listing API. Descriptions use Apify residential proxy (Sweden) automatically.",
       "editor": "proxy",
-      "default": {
-        "useApifyProxy": false
-      }
+      "default": {}
     }
   },
   "required": [],

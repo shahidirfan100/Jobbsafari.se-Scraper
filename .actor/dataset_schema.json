@@ -11,11 +11,11 @@
           "company",
           "category",
           "location",
-          "job_location_type",
+          "municipality",
           "posted_at",
           "ends_at",
-          "description_html",
-          "description_text",
+          "description_summary",
+          "apply_url",
           "url",
           "logo_url"
         ]
@@ -43,25 +43,25 @@
             "label": "Location",
             "format": "text"
           },
-          "job_location_type": {
-            "label": "Location Type",
+          "municipality": {
+            "label": "Municipality",
             "format": "text"
           },
           "posted_at": {
             "label": "Posted",
-            "format": "date"
+            "format": "text"
           },
           "ends_at": {
             "label": "Deadline",
-            "format": "date"
-          },
-          "description_html": {
-            "label": "Description HTML",
             "format": "text"
           },
-          "description_text": {
-            "label": "Description Text",
+          "description_summary": {
+            "label": "Summary",
             "format": "text"
+          },
+          "apply_url": {
+            "label": "Apply URL",
+            "format": "link"
           },
           "url": {
             "label": "URL",
